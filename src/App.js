@@ -1,15 +1,14 @@
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter,Routes, Route} from 'react-router-dom';
-import AddSchool from './components/AddSchool';
-import ShowSchool from './components/ShowSchool';
+import AddSchool from './component/addSchool';
+import ShowSchool from './component/showSchool';
 const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<ShowSchool/>} />
           <Route path="/addSchool" element={<AddSchool/>} />
-          <Route path="/showSchool" element={<ShowSchool/>} />
 
         </Routes>
       </BrowserRouter>
