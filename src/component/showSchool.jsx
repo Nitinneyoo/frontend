@@ -3,14 +3,14 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 function ShowSchool() {
-    const [school, setSchool] = useState([]);
+    const [hero, setHero] = useState("");
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
         axios.get(`http://localhost:8081/`)
             .then((res) => {
-                setSchool(res.data);
+                setHero(res.data);
                 setIsLoading(false);
             })
             .catch((err) => {
@@ -43,7 +43,7 @@ function ShowSchool() {
                         ) : error ? (
                             <tr><td colSpan="7" className="text-danger">Error: {error}</td></tr>
                         ) : (
-                            school.map((data,i) => (
+                            hero.map((data,i) => (
                                 <tr key={i}> 
                                     <td>{data.Id}</td>
                                     <td>{data.Name}</td>
@@ -63,3 +63,4 @@ function ShowSchool() {
 }
 
 export default ShowSchool;
+

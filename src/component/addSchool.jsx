@@ -16,9 +16,9 @@ function AddSchool() {
 
   function handleSubmit(event){
     event.preventDefault()
-    axios.post(`http://localhost:8081/`,{Id,Name,Email,Address,City,State,Contact})
+    axios.post(`http://localhost:8081/addSchool`,{Id,Name,Email,Address,City,State,Contact})
     .then((res) =>{
-      console.log(res)
+      console.log(res.data)
       navigate('/')
     } )
     .catch((err) => console.log(err));
